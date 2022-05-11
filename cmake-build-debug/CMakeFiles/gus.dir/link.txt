@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/gus.dir/client.cpp.o CMakeFiles/gus.dir/structure_bd.cpp.o -o gus  /usr/lib64/libcurl.so 

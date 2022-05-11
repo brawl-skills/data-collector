@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/andrey/Projects/c++/test/client.cpp
+iostream
+-
+curl/curl.h
+-
+string
+-
+vector
+-
+algorithm
+-
+thread
+-
+ctime
+-
+mutex
+-
+fstream
+-
+semaphore
+-
+pqxx/pqxx
+-
+boost/json.hpp
+-
+structures.h
+/home/andrey/Projects/c++/test/structures.h
+
+/home/andrey/Projects/c++/test/structures.h
+

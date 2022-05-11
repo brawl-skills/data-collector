@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="data_collector"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\lib64\;CMake Files\..\..\..\..\..\usr\lib64\cmake\;CMake Files\..\..\..\..\..\usr\lib64\cmake\Boost-1.79.0\;CMake Files\..\..\..\..\..\usr\lib64\cmake\boost_headers-1.79.0\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/andrey/Projects/c++/test/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/andrey/Projects/c++/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/andrey/Projects/c++/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/andrey/Projects/c++/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/andrey/Projects/c++/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/andrey/Projects/c++/test/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/andrey/Projects/c++/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/andrey/Projects/c++/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/andrey/Projects/c++/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/andrey/Projects/c++/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/andrey/Projects/c++/test/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/andrey/Projects/c++/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/andrey/Projects/c++/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/andrey/Projects/c++/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/andrey/Projects/c++/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="data_collector">
+				<Option output="/home/andrey/Projects/c++/test/cmake-build-debug/data_collector" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/andrey/Projects/c++/test/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/c++/11/x86_64-suse-linux"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib64/gcc/x86_64-suse-linux/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib64/gcc/x86_64-suse-linux/11/include-fixed"/>
+					<Add directory="/usr/lib64/gcc/x86_64-suse-linux/11/../../../../x86_64-suse-linux/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/andrey/Projects/c++/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 data_collector"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/andrey/Projects/c++/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/andrey/Projects/c++/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/andrey/Projects/c++/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="data_collector/fast">
+				<Option output="/home/andrey/Projects/c++/test/cmake-build-debug/data_collector" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/andrey/Projects/c++/test/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/c++/11/x86_64-suse-linux"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib64/gcc/x86_64-suse-linux/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib64/gcc/x86_64-suse-linux/11/include-fixed"/>
+					<Add directory="/usr/lib64/gcc/x86_64-suse-linux/11/../../../../x86_64-suse-linux/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j12 -f &quot;/home/andrey/Projects/c++/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 data_collector/fast"/>
+					<CompileFile command="/usr/bin/gmake -j12 -f &quot;/home/andrey/Projects/c++/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j12 -f &quot;/home/andrey/Projects/c++/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j12 -f &quot;/home/andrey/Projects/c++/test/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/andrey/Projects/c++/test/client.cpp">
+			<Option target="data_collector"/>
+		</Unit>
+		<Unit filename="/home/andrey/Projects/c++/test/structures.h">
+			<Option target="data_collector"/>
+		</Unit>
+		<Unit filename="/home/andrey/Projects/c++/test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/andrey/Projects/c++/test/../../../../../usr/lib64/cmake/Boost-1.79.0/BoostConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib64\cmake\Boost-1.79.0\"/>
+		</Unit>
+		<Unit filename="/home/andrey/Projects/c++/test/../../../../../usr/lib64/cmake/Boost-1.79.0/BoostConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib64\cmake\Boost-1.79.0\"/>
+		</Unit>
+		<Unit filename="/home/andrey/Projects/c++/test/../../../../../usr/lib64/cmake/boost_headers-1.79.0/boost_headers-config-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib64\cmake\boost_headers-1.79.0\"/>
+		</Unit>
+		<Unit filename="/home/andrey/Projects/c++/test/../../../../../usr/lib64/cmake/boost_headers-1.79.0/boost_headers-config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib64\cmake\boost_headers-1.79.0\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
