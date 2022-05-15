@@ -1,5 +1,4 @@
 /home/andrey/DevKits/c++/clion-2021.1.1/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/andrey/Projects/c++/test
--- Found Boost: /usr/lib64/cmake/Boost-1.79.0/BoostConfig.cmake (found version "1.79.0")  
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/andrey/Projects/c++/test/cmake-build-debug

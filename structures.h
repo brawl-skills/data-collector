@@ -11,21 +11,52 @@ public:
     int brawler_trophies;
 };
 
-struct battlelog
+
+struct battlelog_3v3
 {
 public:
-    int id;
-    std::string time;
-    int event_id;
-    int event_mode;
+    int id;  //in database
+    std::string battleTime;
+    int event_id; //in brawl stars
+    std::string event_mode;
     std::string event_map;
+
     std::string battle_mode;
     std::string battle_type;
     std::string battle_result;
     int battle_duration;
     int battle_trophy_change;
     int star_player_id;
-    int teams[2][3];
+    battlelog_player players_in_game[2][3]; //players id
+};
+
+struct battlelog_solo
+{
+public:
+    int id;  //in database
+    std::string battleTime;
+    int event_id; //in brawl stars
+    std::string event_mode;
+    std::string event_map;
+
+    std::string battle_mode;
+    std::string battle_type;
+    int battle_trophy_change;
+    battlelog_player players_in_game[10]; //players id
+};
+
+struct battlelog_duo
+{
+public:
+    int id;  //in database
+    std::string battleTime;
+    int event_id; //in brawl stars
+    std::string event_mode;
+    std::string event_map;
+
+    std::string battle_mode;
+    std::string battle_type;
+    battlelog_player teams[5][2]; //players id
 };
 
 struct player

@@ -9,14 +9,14 @@
 #include <fstream>
 #include <semaphore>
 #include <pqxx/pqxx>
-#include <boost/beast.hpp>
+#include <json/json.h>
 #include "structures.h"
 
 using namespace std;
 using namespace pqxx;
 using namespace chrono;
 
-constexpr auto KEY = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjUxMjg2MDAwLTI5ZGItNDM5Ni1hNWQ2LThiNDcxMjY5MjA2OCIsImlhdCI6MTY0OTY3Mzk1NSwic3ViIjoiZGV2ZWxvcGVyLzMyYWI1YWE1LTQ4Y2YtYjVhMy1jMWQ5LTJlNGY5Mjk1ZDdjOCIsInNjb3BlcyI6WyJicmF3bHN0YXJzIl0sImxpbWl0cyI6W3sidGllciI6ImRldmVsb3Blci9zaWx2ZXIiLCJ0eXBlIjoidGhyb3R0bGluZyJ9LHsiY2lkcnMiOlsiMTc4LjE3Ni43NC4yNDkiXSwidHlwZSI6ImNsaWVudCJ9XX0.iq7epIha0sjE0lUmLAQfNhPKUvACkzf5Wcn0RcZrakfhm342ZCygnng7Fd5nQZmtcRNpKalH4hJE7IPn50VCWg";
+constexpr auto KEY = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjcxMzA2ZDFjLWIzMWItNDg2OC04MjAxLTA5YTFkMTFhZjAwZCIsImlhdCI6MTY1MjY0MjAxMiwic3ViIjoiZGV2ZWxvcGVyLzMyYWI1YWE1LTQ4Y2YtYjVhMy1jMWQ5LTJlNGY5Mjk1ZDdjOCIsInNjb3BlcyI6WyJicmF3bHN0YXJzIl0sImxpbWl0cyI6W3sidGllciI6ImRldmVsb3Blci9zaWx2ZXIiLCJ0eXBlIjoidGhyb3R0bGluZyJ9LHsiY2lkcnMiOlsiMTc4LjE3Ni43Ny4yNiJdLCJ0eXBlIjoiY2xpZW50In1dfQ.wxhSakggJ9p6dPODmJDZvG2HRcyOh_FyGxGtTgzYhPePwWaaj5J03WJiA6E8Q_mEfX5PCyjrR8fEziDWEY0PGA";
 constexpr auto BRAWL_STARS_URL = "https://api.brawlstars.com/v1/players/";
 constexpr auto BATTLELOG ="/battlelog";
 
@@ -104,55 +104,6 @@ string GetRequest(const string url)
 }
 
 
-container GetTags2()
-{
-    container tags;
-    return tags;
-}
-
-int connect_to_db()
-{
-    try
-    {
-        connection C("postgresql://andrey:123@127.0.0.1:5432/brawl_skills_db");
-        if (C.is_open())
-        {
-            cout << "Opened database successfully: " << C.dbname() << endl;
-        }
-        else
-        {
-            cout << "Can't open database" << endl;
-            return 1;
-        }
-    }
-    catch (const std::exception &e)
-    {
-        cerr << e.what() << std::endl;
-        return 1;
-    }
-}
-
-
-
-container GetTags(string json)
-{
-    int pos=0;
-    string player="";
-    container new_players;
-
-    pos=json.find('#');
-    while(pos!=-1)
-    {
-        json=json.substr(pos);
-        pos=json.find('"');
-        player= "%23"+json.substr(1, pos-1);
-        new_players.push_back(player);
-        json=json.substr(pos);
-        pos=json.find('#');
-    }
-    return new_players;
-}
-
 string setRequest()
 {
     string request = BRAWL_STARS_URL;
@@ -171,18 +122,95 @@ string setRequest()
     return request;
 }
 
-void ParseJson(string json)
+Json::Value ParseJson(string json)
 {
-    //TODO:Get all fields to new structure with those fields
-    //TODO:change return type to new structure
+    Json::Value root;
+    Json::Reader parser;
+    if (!parser.parse(json, root))
+    {
+        cout<< "Couldn't parse"<< endl;
+    }
+    return root;
+
+
 }
 
+void tetu(Json::Value battlelogs)
+{
+    Json::Value battle;
+    string mode = "";
+    string time = "";
+
+
+    for (int i = 0; i < battlelogs["items"].size(); ++i)
+    {
+        battle = battlelogs["items"][i];
+
+        time = battlelogs["items"][i]["battleTime"].asString();
+        mode = battle["battle"]["mode"].asString();
+        if (mode == "soloShowdown" || mode == "gemGrab" || mode == "heist" || mode == "bounty")
+        {
+            if (mode == "soloShowdown")
+            {
+                battlelog_solo log;
+
+                log.battleTime = time;
+                log.event_mode = mode;
+
+                log.event_id = battlelogs["items"][i]["event"]["id"].asInt();
+                log.event_map = battlelogs["items"][i]["event"]["map"].asString();
+                log.battle_mode = battle["battle"]["mode"].asString();
+                log.battle_type = battle["battle"]["type"].asString();
+                log.battle_trophy_change = battle["battle"]["trophyChange"].asInt();
+
+                for (int player = 0; player < battle["battle"]["players"].size(); ++player)
+                {
+                    log.players_in_game[player].tag = battle["battle"]["players"][player]["tag"].asString();
+                    log.players_in_game[player].player_name = battle["battle"]["players"][player]["name"].asString();
+                    log.players_in_game[player].brawler_id = battle["battle"]["players"][player]["brawler"]["id"].asInt();
+                    log.players_in_game[player].brawler_name = battle["battle"]["players"][player]["brawler"]["name"].asString();
+                    log.players_in_game[player].brawler_power = battle["battle"]["players"][player]["brawler"]["power"].asInt();
+                    log.players_in_game[player].brawler_trophies = battle["battle"]["players"][player]["brawler"]["trophies"].asInt();
+                }
+            }
+            else
+            {
+                battlelog_3v3 log;
+
+                log.battleTime = time;
+
+                log.event_id = battlelogs["items"][i]["event"]["id"].asInt();
+                log.event_mode = mode;
+                log.event_map = battlelogs["items"][i]["event"]["map"].asString();
+
+                log.battle_mode=mode;
+
+                log.battle_type = battle["battle"]["type"].asString();
+                log.battle_result=battle["battle"]["result"].asString();
+                log.battle_duration=battle["battle"]["duration"].asInt();
+                log.battle_trophy_change = battle["battle"]["trophyChange"].asInt();
+
+                for (int teams=0; teams<battle["battle"]["teams"].size(); ++teams)
+                {
+                    for (int player=0; player<battle["battle"]["teams"][teams].size(); ++player)
+                    {
+                        log.players_in_game[teams][player].tag=battle["battle"]["teams"][teams][player]["tag"].asString();
+                        log.players_in_game[teams][player].player_name=battle["battle"]["teams"][teams][player]["name"].asString();
+                        log.players_in_game[teams][player].brawler_name=battle["battle"]["teams"][teams][player]["brawler"]["name"].asString();
+                        log.players_in_game[teams][player].brawler_id=battle["battle"]["teams"][teams][player]["brawler"]["id"].asInt();
+                        log.players_in_game[teams][player].brawler_power=battle["battle"]["teams"][teams][player]["brawler"]["power"].asInt();
+                        log.players_in_game[teams][player].brawler_trophies=battle["battle"]["teams"][teams][player]["brawler"]["trophies"].asInt();
+                    }
+                }
+                cout<<"";
+            }
+        }
+    }
+}
 void SendToDB()
 {
     //TODO:send structure to DB
 }
-
-mutex console;
 
 
 int j=0;
@@ -201,20 +229,12 @@ void thread_task()
         json = GetRequest(url);
         url_locker.release();
 
-        console.lock();
-
-        ofstream json_out;
-        json_out.open("/home/andrey/jsons.txt", ios::app);
-        json_out << "THREAD " << j << endl << json << endl << endl;
-        ++j;
-        console.unlock();
 
 
-        new_players = GetTags(json);
+        ParseJson(json);
 
         locker.lock();
-        for (auto i: new_players)
-            players.push_back(i);
+
         locker.unlock();
     }
 }
@@ -257,26 +277,26 @@ void watch_and_get()
 
 int main()
 {
-    //players.push_back("%23UR2UL8YR");
-    thread main_thread(watch_and_get);
-    main_thread.join();
+    players.push_back("%23pqc2rvvoq");
+    //thread main_thread(watch_and_get);
+    //main_thread.join();
 
 
 
-/*
+
     string request = setRequest();
     string json = GetRequest(request);
-    players = GetTags(json);
+    Json::Value battlelogs = ParseJson(json);
+    Json::Value battle;
+    tetu(battlelogs);
+    //Create_threads();
 
-    Create_threads();
-
-    for(auto& i: threadVector)
+   /* for(auto& i: threadVector)
     {
         i.join();
     }
+    */
 
-    connect_to_db();
-*/
 
     return 0;
 }
