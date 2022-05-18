@@ -72,6 +72,7 @@ CMAKE_BINARY_DIR = /home/andrey/Projects/c++/test/cmake-build-debug
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/players_collector.dir/all
 all: CMakeFiles/data_collector.dir/all
 
 .PHONY : all
@@ -82,9 +83,37 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/players_collector.dir/clean
 clean: CMakeFiles/data_collector.dir/clean
 
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/players_collector.dir
+
+# All Build rule for target.
+CMakeFiles/players_collector.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/players_collector.dir/build.make CMakeFiles/players_collector.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/players_collector.dir/build.make CMakeFiles/players_collector.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/andrey/Projects/c++/test/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target players_collector"
+.PHONY : CMakeFiles/players_collector.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/players_collector.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrey/Projects/c++/test/cmake-build-debug/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/players_collector.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrey/Projects/c++/test/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/players_collector.dir/rule
+
+# Convenience name for target.
+players_collector: CMakeFiles/players_collector.dir/rule
+
+.PHONY : players_collector
+
+# clean rule for target.
+CMakeFiles/players_collector.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/players_collector.dir/build.make CMakeFiles/players_collector.dir/clean
+.PHONY : CMakeFiles/players_collector.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/data_collector.dir

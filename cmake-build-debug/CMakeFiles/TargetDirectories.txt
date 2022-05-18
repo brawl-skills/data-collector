@@ -1,3 +1,4 @@
-/home/andrey/Projects/c++/test/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /home/andrey/Projects/c++/test/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/andrey/Projects/c++/test/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/andrey/Projects/c++/test/cmake-build-debug/CMakeFiles/players_collector.dir
 /home/andrey/Projects/c++/test/cmake-build-debug/CMakeFiles/data_collector.dir

@@ -56,5 +56,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/players_collector.dir/DependInfo.cmake"
   "CMakeFiles/data_collector.dir/DependInfo.cmake"
   )

@@ -15,6 +15,8 @@ find_library(PQ_LIB pq REQUIRED)
 
 
 add_executable(data_collector client.cpp structures.h)
+add_executable(players_collector structures.h players_collector.cpp)
 include_directories(${CURL_INCLUDE_DIR})
 target_link_libraries(data_collector ${CURL_LIBRARIES} ${PQXX_LIB} ${PQ_LIB} ${Boost_LIBRARIES} ${JSONCPP_LIBRARIES})
+target_link_libraries(players_collector ${CURL_LIBRARIES} ${PQXX_LIB} ${PQ_LIB} ${Boost_LIBRARIES} ${JSONCPP_LIBRARIES})
 

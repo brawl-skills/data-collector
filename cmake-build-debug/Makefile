@@ -75,17 +75,6 @@ CMAKE_BINARY_DIR = /home/andrey/Projects/c++/test/cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/andrey/DevKits/c++/clion-2021.1.1/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -96,6 +85,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/home/andrey/DevKits/c++/clion-2021.1.1/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -128,6 +128,19 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named players_collector
+
+# Build rule for target.
+players_collector: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 players_collector
+.PHONY : players_collector
+
+# fast build rule for target.
+players_collector/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/players_collector.dir/build.make CMakeFiles/players_collector.dir/build
+.PHONY : players_collector/fast
 
 #=============================================================================
 # Target rules for targets named data_collector
@@ -169,6 +182,33 @@ client.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/data_collector.dir/build.make CMakeFiles/data_collector.dir/client.cpp.s
 .PHONY : client.cpp.s
 
+players_collector.o: players_collector.cpp.o
+
+.PHONY : players_collector.o
+
+# target to build an object file
+players_collector.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/players_collector.dir/build.make CMakeFiles/players_collector.dir/players_collector.cpp.o
+.PHONY : players_collector.cpp.o
+
+players_collector.i: players_collector.cpp.i
+
+.PHONY : players_collector.i
+
+# target to preprocess a source file
+players_collector.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/players_collector.dir/build.make CMakeFiles/players_collector.dir/players_collector.cpp.i
+.PHONY : players_collector.cpp.i
+
+players_collector.s: players_collector.cpp.s
+
+.PHONY : players_collector.s
+
+# target to generate assembly for a file
+players_collector.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/players_collector.dir/build.make CMakeFiles/players_collector.dir/players_collector.cpp.s
+.PHONY : players_collector.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -178,9 +218,13 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... data_collector"
+	@echo "... players_collector"
 	@echo "... client.o"
 	@echo "... client.i"
 	@echo "... client.s"
+	@echo "... players_collector.o"
+	@echo "... players_collector.i"
+	@echo "... players_collector.s"
 .PHONY : help
 
 

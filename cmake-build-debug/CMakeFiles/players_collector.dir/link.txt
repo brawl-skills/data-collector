@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/players_collector.dir/players_collector.cpp.o -o players_collector  /usr/lib64/libcurl.so /usr/lib64/libpqxx.so /usr/lib64/libpq.so -ljsoncpp 

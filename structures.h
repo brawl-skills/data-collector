@@ -15,7 +15,7 @@ public:
 struct battlelog_3v3
 {
 public:
-    int id;  //in database
+    std::string tag;  //in database
     std::string battleTime;
     int event_id; //in brawl stars
     std::string event_mode;
@@ -28,6 +28,7 @@ public:
     int battle_trophy_change;
     int star_player_id;
     battlelog_player players_in_game[2][3]; //players id
+    int teams[2][3];
 };
 
 struct battlelog_solo
@@ -59,7 +60,7 @@ public:
     battlelog_player teams[5][2]; //players id
 };
 
-struct player
+struct player_log
 {
     std::string tag;
     std::string name;
@@ -78,5 +79,15 @@ struct player
     int best_time_as_big_brawler;
     std::string club_tag;
     std::string club_name;
+};
 
+struct player_brawlers
+{
+    std::string player_tag;
+    int id;
+    std::string name;
+    int power;
+    int rank;
+    int trophies;
+    int highest_trophies;
 };

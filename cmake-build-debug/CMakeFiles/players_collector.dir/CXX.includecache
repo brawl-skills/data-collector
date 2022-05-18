@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/andrey/Projects/c++/test/client.cpp
+/home/andrey/Projects/c++/test/players_collector.cpp
 iostream
 -
 curl/curl.h
@@ -23,13 +23,9 @@ ctime
 -
 mutex
 -
-string
--
 fstream
 -
 semaphore
--
-set
 -
 pqxx/pqxx
 -
