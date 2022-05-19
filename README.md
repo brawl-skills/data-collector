@@ -14,7 +14,7 @@ used libraries: [libpqxx](http://pqxx.org/development/libpqxx/), [jsoncpp](https
 
 ## Сборка
 
-Перед установкой проверьте, что у вас установлены библиотеки **Jsoncpp \***, **curl \*** и **pqxx \***, а так же  **glibc.\*** и **cmake.\*** !
+Перед установкой проверьте, что у вас установлены библиотеки **Jsoncpp**, **curl** и **pqxx**, а так же  **glibc** и **cmake** !
 
 1. Установить локально репозиторий с проектом  
 2. собрать проект с помощью cmake 
@@ -30,5 +30,5 @@ cmake --build ./cmake-build-debug --target players_collector -- -j 9
 
 ## Запуск
 1. Перейти в репозиторий с собранным файлом(файлами)  
-2. запустить с помощью ./players_collector "api_token" или ./data_collector "api_token", где api_token- ваш токен разработчика brawl stars api
+2. запустить с помощью **./players_collector "api_token"** или **./data_collector "api_token"**, где **api_token**- ваш токен разработчика brawl stars api
 
