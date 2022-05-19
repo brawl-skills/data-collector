@@ -29,4 +29,6 @@ cmake --build ./cmake-build-debug --target players_collector -- -j 9
 ```
 
 ## Запуск
-написать в консоли (./data_collector "api-token") или (./players_collector "api-token").
+1. Перейти в репозиторий с собранным файлом(файлами)  
+2. запустить с помощью ./players_collector "api_token" или ./data_collector "api_token", где api_token- ваш токен разработчика brawl stars api
+
