@@ -17,6 +17,7 @@ used libraries: [libpqxx](http://pqxx.org/development/libpqxx/), [jsoncpp](https
 Перед установкой проверьте, что у вас установлены библиотеки **Jsoncpp.\***, **curl.\*** и**pqxx.\***, а так же  **glibc.\*** и **cmake.\*** !
 
 1. Установить локально репозиторий с проектом 
+
 2.собрать проект с помощью cmake 
 
 ## Пример
