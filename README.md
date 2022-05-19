@@ -1,20 +1,15 @@
 # data-collector
-Data_collector for players in Brawl Stars
+>Data_collector for players in Brawl Stars
 
 used libraries: [libpqxx](http://pqxx.org/development/libpqxx/), [jsoncpp](https://github.com/open-source-parsers/jsoncpp), [curl](https://github.com/curl/curl)
 
-# Site Analytic Tool
-
-> Маленький скрипт для получения информации о пользовательской сессии на вашем сайте.
-
 ## Содержание
 
-- [Особенности](#особенности)
 - [Сборка](#сборка)
 - [Установка](#установка)
   - [Пример](#пример)
-- [Примеры Backend решений](#примеры-backend-решений)
-  - [Fastify](#fastify5-nodejs-веб-фреймворк)
+-[Работа](#работа) 
+  
 
 ## Сборка
 
