@@ -8,7 +8,6 @@ used libraries: [libpqxx](http://pqxx.org/development/libpqxx/), [jsoncpp](https
 - [Сборка](#сборка)
 - [Установка](#установка)
   - [Пример](#пример)
-
 -[Запуск](#запуск) 
   
 
