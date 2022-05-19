@@ -1,7 +1,7 @@
 # data-collector
->Data_collector for players in Brawl Stars
+>Сборщик данных об игроках brawl stars
 
-used libraries: [libpqxx](http://pqxx.org/development/libpqxx/), [jsoncpp](https://github.com/open-source-parsers/jsoncpp), [curl](https://github.com/curl/curl)
+Использованные библиотеки: [libpqxx](http://pqxx.org/development/libpqxx/), [jsoncpp](https://github.com/open-source-parsers/jsoncpp), [curl](https://github.com/curl/curl)
 
 ## Содержание
 
